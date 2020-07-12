@@ -65,6 +65,7 @@
             this.scientificToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.datesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.temperatureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.distanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.weightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -93,17 +94,18 @@
             this.Date1 = new System.Windows.Forms.DateTimePicker();
             this.TempUnit = new System.Windows.Forms.ComboBox();
             this.DateBox1 = new System.Windows.Forms.GroupBox();
-            this.DaysOnly = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.DaysCalc = new System.Windows.Forms.Label();
-            this.Date2 = new System.Windows.Forms.DateTimePicker();
             this.TempBox = new System.Windows.Forms.GroupBox();
             this.RecalcTemp = new System.Windows.Forms.Button();
             this.Temp2 = new System.Windows.Forms.Label();
             this.Temp1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.DaysOnly = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.DaysCalc = new System.Windows.Forms.Label();
+            this.Date2 = new System.Windows.Forms.DateTimePicker();
             this.WeightBox = new System.Windows.Forms.GroupBox();
+            this.DistUnit = new System.Windows.Forms.ComboBox();
             this.Weight2 = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
             this.Weight3 = new System.Windows.Forms.Label();
@@ -113,8 +115,6 @@
             this.IncDatesCheck = new System.Windows.Forms.CheckBox();
             this.DPNumber = new System.Windows.Forms.NumericUpDown();
             this.DPLabel = new System.Windows.Forms.Label();
-            this.DistUnit = new System.Windows.Forms.ComboBox();
-            this.distanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.DateBox1.SuspendLayout();
             this.TempBox.SuspendLayout();
@@ -543,42 +543,49 @@
             // standardToolStripMenuItem
             // 
             this.standardToolStripMenuItem.Name = "standardToolStripMenuItem";
-            this.standardToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.standardToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.standardToolStripMenuItem.Text = "Standard";
             this.standardToolStripMenuItem.Click += new System.EventHandler(this.standardToolStripMenuItem_Click);
             // 
             // scientificToolStripMenuItem
             // 
             this.scientificToolStripMenuItem.Name = "scientificToolStripMenuItem";
-            this.scientificToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.scientificToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.scientificToolStripMenuItem.Text = "Scientific";
             this.scientificToolStripMenuItem.Click += new System.EventHandler(this.scientificToolStripMenuItem_Click);
             // 
             // datesToolStripMenuItem
             // 
             this.datesToolStripMenuItem.Name = "datesToolStripMenuItem";
-            this.datesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.datesToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.datesToolStripMenuItem.Text = "Dates";
             this.datesToolStripMenuItem.Click += new System.EventHandler(this.datesToolStripMenuItem_Click);
             // 
             // temperatureToolStripMenuItem
             // 
             this.temperatureToolStripMenuItem.Name = "temperatureToolStripMenuItem";
-            this.temperatureToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.temperatureToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.temperatureToolStripMenuItem.Text = "Temperature";
             this.temperatureToolStripMenuItem.Click += new System.EventHandler(this.temperatureToolStripMenuItem_Click);
+            // 
+            // distanceToolStripMenuItem
+            // 
+            this.distanceToolStripMenuItem.Name = "distanceToolStripMenuItem";
+            this.distanceToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.distanceToolStripMenuItem.Text = "Distance/Length";
+            this.distanceToolStripMenuItem.Click += new System.EventHandler(this.distanceToolStripMenuItem_Click);
             // 
             // weightToolStripMenuItem
             // 
             this.weightToolStripMenuItem.Name = "weightToolStripMenuItem";
-            this.weightToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.weightToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.weightToolStripMenuItem.Text = "Weight";
             this.weightToolStripMenuItem.Click += new System.EventHandler(this.weightToolStripMenuItem_Click);
             // 
             // testingToolStripMenuItem
             // 
             this.testingToolStripMenuItem.Name = "testingToolStripMenuItem";
-            this.testingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.testingToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.testingToolStripMenuItem.Text = "Testing";
             this.testingToolStripMenuItem.Click += new System.EventHandler(this.testingToolStripMenuItem_Click);
             // 
@@ -757,7 +764,7 @@
             this.power.TabStop = false;
             this.power.Text = "^";
             this.power.UseVisualStyleBackColor = false;
-            this.power.Click += new System.EventHandler(this.operator1);
+            this.power.Click += new System.EventHandler(this.operator2);
             // 
             // xroot
             // 
@@ -770,7 +777,7 @@
             this.xroot.TabStop = false;
             this.xroot.Text = "˟√";
             this.xroot.UseVisualStyleBackColor = false;
-            this.xroot.Click += new System.EventHandler(this.operator1);
+            this.xroot.Click += new System.EventHandler(this.operator2);
             // 
             // taninv
             // 
@@ -896,13 +903,68 @@
             this.DateBox1.Controls.Add(this.Date2);
             this.DateBox1.Controls.Add(this.Date1);
             this.DateBox1.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateBox1.Location = new System.Drawing.Point(360, 134);
+            this.DateBox1.Location = new System.Drawing.Point(359, 135);
             this.DateBox1.Name = "DateBox1";
             this.DateBox1.Size = new System.Drawing.Size(200, 275);
             this.DateBox1.TabIndex = 55;
             this.DateBox1.TabStop = false;
             this.DateBox1.Text = "     Dates Calculator     ";
             this.DateBox1.Visible = false;
+            // 
+            // TempBox
+            // 
+            this.TempBox.BackColor = System.Drawing.SystemColors.Control;
+            this.TempBox.Controls.Add(this.RecalcTemp);
+            this.TempBox.Controls.Add(this.Temp2);
+            this.TempBox.Controls.Add(this.Temp1);
+            this.TempBox.Controls.Add(this.label3);
+            this.TempBox.Controls.Add(this.TempUnit);
+            this.TempBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TempBox.Location = new System.Drawing.Point(359, 135);
+            this.TempBox.Name = "TempBox";
+            this.TempBox.Size = new System.Drawing.Size(200, 275);
+            this.TempBox.TabIndex = 56;
+            this.TempBox.TabStop = false;
+            this.TempBox.Text = "        Temperature        ";
+            this.TempBox.Visible = false;
+            // 
+            // RecalcTemp
+            // 
+            this.RecalcTemp.Location = new System.Drawing.Point(21, 238);
+            this.RecalcTemp.Name = "RecalcTemp";
+            this.RecalcTemp.Size = new System.Drawing.Size(158, 31);
+            this.RecalcTemp.TabIndex = 60;
+            this.RecalcTemp.Text = "Recalculate";
+            this.RecalcTemp.UseVisualStyleBackColor = true;
+            this.RecalcTemp.Click += new System.EventHandler(this.comboBox1_DropDownClosed);
+            // 
+            // Temp2
+            // 
+            this.Temp2.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Temp2.Location = new System.Drawing.Point(21, 166);
+            this.Temp2.Name = "Temp2";
+            this.Temp2.Size = new System.Drawing.Size(158, 69);
+            this.Temp2.TabIndex = 59;
+            this.Temp2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Temp1
+            // 
+            this.Temp1.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Temp1.Location = new System.Drawing.Point(21, 104);
+            this.Temp1.Name = "Temp1";
+            this.Temp1.Size = new System.Drawing.Size(162, 62);
+            this.Temp1.TabIndex = 58;
+            this.Temp1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(17, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(149, 22);
+            this.label3.TabIndex = 57;
+            this.label3.Text = "Converting from:";
             // 
             // DaysOnly
             // 
@@ -957,61 +1019,6 @@
             this.Date2.TabIndex = 54;
             this.Date2.ValueChanged += new System.EventHandler(this.DateValueChanged);
             // 
-            // TempBox
-            // 
-            this.TempBox.BackColor = System.Drawing.SystemColors.Control;
-            this.TempBox.Controls.Add(this.RecalcTemp);
-            this.TempBox.Controls.Add(this.Temp2);
-            this.TempBox.Controls.Add(this.Temp1);
-            this.TempBox.Controls.Add(this.label3);
-            this.TempBox.Controls.Add(this.TempUnit);
-            this.TempBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TempBox.Location = new System.Drawing.Point(360, 133);
-            this.TempBox.Name = "TempBox";
-            this.TempBox.Size = new System.Drawing.Size(200, 275);
-            this.TempBox.TabIndex = 56;
-            this.TempBox.TabStop = false;
-            this.TempBox.Text = "        Temperature        ";
-            this.TempBox.Visible = false;
-            // 
-            // RecalcTemp
-            // 
-            this.RecalcTemp.Location = new System.Drawing.Point(21, 238);
-            this.RecalcTemp.Name = "RecalcTemp";
-            this.RecalcTemp.Size = new System.Drawing.Size(158, 31);
-            this.RecalcTemp.TabIndex = 60;
-            this.RecalcTemp.Text = "Recalculate";
-            this.RecalcTemp.UseVisualStyleBackColor = true;
-            this.RecalcTemp.Click += new System.EventHandler(this.comboBox1_DropDownClosed);
-            // 
-            // Temp2
-            // 
-            this.Temp2.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Temp2.Location = new System.Drawing.Point(21, 166);
-            this.Temp2.Name = "Temp2";
-            this.Temp2.Size = new System.Drawing.Size(158, 69);
-            this.Temp2.TabIndex = 59;
-            this.Temp2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Temp1
-            // 
-            this.Temp1.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Temp1.Location = new System.Drawing.Point(21, 104);
-            this.Temp1.Name = "Temp1";
-            this.Temp1.Size = new System.Drawing.Size(162, 62);
-            this.Temp1.TabIndex = 58;
-            this.Temp1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(17, 40);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 22);
-            this.label3.TabIndex = 57;
-            this.label3.Text = "Converting from:";
-            // 
             // WeightBox
             // 
             this.WeightBox.BackColor = System.Drawing.SystemColors.Control;
@@ -1023,12 +1030,33 @@
             this.WeightBox.Controls.Add(this.label6);
             this.WeightBox.Controls.Add(this.WeightUnit);
             this.WeightBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeightBox.Location = new System.Drawing.Point(359, 134);
+            this.WeightBox.Location = new System.Drawing.Point(359, 133);
             this.WeightBox.Name = "WeightBox";
             this.WeightBox.Size = new System.Drawing.Size(200, 277);
             this.WeightBox.TabIndex = 61;
             this.WeightBox.TabStop = false;
             this.WeightBox.Text = "               Weight               ";
+            // 
+            // DistUnit
+            // 
+            this.DistUnit.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DistUnit.Items.AddRange(new object[] {
+            "Inches",
+            "Feet",
+            "Yards",
+            "Miles",
+            "Centimetres",
+            "Metres",
+            "Kilometres"});
+            this.DistUnit.Location = new System.Drawing.Point(21, 74);
+            this.DistUnit.Name = "DistUnit";
+            this.DistUnit.Size = new System.Drawing.Size(158, 27);
+            this.DistUnit.TabIndex = 62;
+            this.DistUnit.TabStop = false;
+            this.DistUnit.Text = "Miles";
+            this.DistUnit.DropDown += new System.EventHandler(this.DistChange);
+            this.DistUnit.DropDownClosed += new System.EventHandler(this.DistChange);
+            this.DistUnit.TextChanged += new System.EventHandler(this.DistChange);
             // 
             // Weight2
             // 
@@ -1136,34 +1164,6 @@
             this.DPLabel.TabIndex = 64;
             this.DPLabel.Text = "Number of Decimal Places:";
             // 
-            // DistUnit
-            // 
-            this.DistUnit.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DistUnit.Items.AddRange(new object[] {
-            "Inches",
-            "Feet",
-            "Yards",
-            "Miles",
-            "Centimetres",
-            "Metres",
-            "Kilometres"});
-            this.DistUnit.Location = new System.Drawing.Point(21, 74);
-            this.DistUnit.Name = "DistUnit";
-            this.DistUnit.Size = new System.Drawing.Size(158, 27);
-            this.DistUnit.TabIndex = 62;
-            this.DistUnit.TabStop = false;
-            this.DistUnit.Text = "Miles";
-            this.DistUnit.DropDown += new System.EventHandler(this.DistChange);
-            this.DistUnit.DropDownClosed += new System.EventHandler(this.DistChange);
-            this.DistUnit.TextChanged += new System.EventHandler(this.DistChange);
-            // 
-            // distanceToolStripMenuItem
-            // 
-            this.distanceToolStripMenuItem.Name = "distanceToolStripMenuItem";
-            this.distanceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.distanceToolStripMenuItem.Text = "Distance/Length";
-            this.distanceToolStripMenuItem.Click += new System.EventHandler(this.distanceToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1172,8 +1172,8 @@
             this.Controls.Add(this.TempBox);
             this.Controls.Add(this.DPLabel);
             this.Controls.Add(this.DPNumber);
-            this.Controls.Add(this.IncDatesCheck);
             this.Controls.Add(this.WeightBox);
+            this.Controls.Add(this.IncDatesCheck);
             this.Controls.Add(this.DateBox1);
             this.Controls.Add(this.ErrorLabel);
             this.Controls.Add(this.button10);
