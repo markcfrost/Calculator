@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Data;
 using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace Calculator2
 {
     public partial class Form1 : Form
-    {//setting variables
-
+    {
+        //setting variables
         Double ResultValue = 0;
         Double MemValue = 0;
         String OperationPerformed = "";
@@ -26,40 +25,27 @@ namespace Calculator2
         Double TempCalc = 0;
         DateTime olddate = new DateTime(1, 1, 1);
         DateTime newdate = new DateTime(1, 1, 1);
-
-
-
-
-
+        String AddCalc = "";
 
 
         public Form1()
         {
             Application.EnableVisualStyles();
             InitializeComponent();
-            //Application.Run(new Form1());
-            // }
-            // public Form1()
-            // {
             FlowLayoutPanel panel = new FlowLayoutPanel();
             panel.AutoSize = true;
             panel.FlowDirection = FlowDirection.TopDown;
-            //panel.Controls.Add(TextBox1);
-            this.Controls.Add(panel);
 
+            this.Controls.Add(panel);
             this.KeyPreview = true;
             this.KeyPress +=
                 new KeyPressEventHandler(Form1_KeyPress);
-
-            //TextBox1.KeyPress +=
-            // new KeyPressEventHandler(TextBox1_KeyPress);
         }
         void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar >= 40 && e.KeyChar <= 57)
             {
-                //MessageBox.Show("Form.KeyPress: " +
-                //e.KeyChar.ToString() + e.KeyChar);
+
 
                 switch (e.KeyChar)
                 {
@@ -120,29 +106,6 @@ namespace Calculator2
                 BackSpace.PerformClick();
             if (e.KeyChar == 61 || e.KeyChar == 13)
                 answer.PerformClick();
-            //if (e.KeyChar == 94)
-            //    power.PerformClick();
-            //Ctrl C
-            //if (e.KeyChar == 3)
-            //System.Windows.Forms.Clipboard.SetText(TextResult.Text);
-            //ctrl V
-            //if (e.KeyChar == 22)
-            //{
-            //check if paste will be decimal
-            //PasteText = System.Windows.Forms.Clipboard.GetText();
-            //decimal PasteCheck;
-            //if (Decimal.TryParse(PasteText, out PasteCheck))
-            //{
-            //    TextResult.Text = PasteText;
-            //    MemRecall1 = true;
-            // }
-            //}
-            //ctrl X
-            //if (e.KeyChar == 24)
-            //{
-            //  System.Windows.Forms.Clipboard.SetText(TextResult.Text);
-            //TextResult.Text = "0";
-            // }
             e.Handled = true;
             ErrorLabel.Focus();
 
@@ -197,7 +160,7 @@ namespace Calculator2
                 IsOperationPerformed = true;
                 TextResult.Text = "0";
             }
-            else
+            if (Calculation != "" && AddCalc =="")
             {
                 if (TextResult.Text != "0")
                     Calculation = Calculation + TextResult.Text + button.Text;
@@ -208,85 +171,71 @@ namespace Calculator2
                 IsOperationPerformed = true;
                 TextResult.Text = "0";
             }
-        }
-
-        //Clear All
-        private void ButtonCE_Click(object sender, EventArgs e)
-        {
-            TextResult.Text = "0";
-            ResultValue = 0;
-            Calculation = "";
-            BracketCount = 0;
-            CalcDisplay.Text = "";
-            ErrorLabel.Text = "";
-        }
-
-        //Clear Text Box
-        private void ButtonClear_Click(object sender, EventArgs e)
-        {
-            TextResult.Text = "0";
-            ErrorLabel.Text = "";
-        }
-
-
-        //equals
-        private void answer_Click(object sender, EventArgs e)
-        {
-            ErrorLabel.Text = "";
-            if ((!LastAnswer) && OperationPerformed != "" && Calculation == "")
+            if (Calculation != "" && AddCalc !="")
             {
-                CalcDisplay.Text = ResultValue + " " + OperationPerformed + " " + TextResult.Text;
+                if (OperationPerformed == "^")
+                    AddCalc = Math.Pow(Double.Parse(AddCalc), Double.Parse(TextResult.Text)).ToString();
+                if (OperationPerformed == "˟√")
+                    AddCalc = Math.Pow(Double.Parse(AddCalc), 1 / Double.Parse(TextResult.Text)).ToString();
+                Calculation = Calculation + AddCalc + button.Text;
+                AddCalc = "";
+                TextResult.Text = "0";
+                CalcDisplay.Text = Calculation;
             }
+        }
+        // Power & Root of...
+        private void operator2(object sender, EventArgs e)
+        {
+            ErrorLabel.Text = "";
+            Button button = (Button)sender;
+            if (ResultValue != 0 && Calculation == "")
+                answer.PerformClick();
             if (Calculation == "")
             {
-                switch (OperationPerformed)
-
-                {
-                    case "+":
-                        TextResult.Text = (ResultValue + Double.Parse(TextResult.Text)).ToString();
-                        break;
-                    case "-":
-                        TextResult.Text = (ResultValue - Double.Parse(TextResult.Text)).ToString();
-                        break;
-                    case "*":
-                        TextResult.Text = (ResultValue * Double.Parse(TextResult.Text)).ToString();
-                        break;
-                    case "/":
-                        TextResult.Text = (ResultValue / Double.Parse(TextResult.Text)).ToString();
-                        break;
-                    case "^":
-                        TextResult.Text = Math.Pow(ResultValue, Double.Parse(TextResult.Text)).ToString();
-                        break;
-                    case "˟√":
-                        CalcDisplay.Text = TextResult.Text + " √ " + ResultValue;
-                        TextResult.Text = Math.Pow(ResultValue, 1 / Double.Parse(TextResult.Text)).ToString();
-                        break;
-                }
-                ResultValue = Double.Parse(TextResult.Text);
-                OperationPerformed = "";
-                MemRecall1 = false;
-                LastAnswer = true;
-                Calculation = "";
-            }
-            if (Calculation != "" && BracketCount == 0)
-            {//final sum
-                if (TextResult.Text != "0")
-                    Calculation = Calculation + TextResult.Text;
-                CalcDisplay.Text = Calculation;
-                TextResult.Text = new DataTable().Compute(Calculation, null).ToString();
-                ResultValue = Double.Parse(TextResult.Text);
-                Calculation = "";
-                LastAnswer = true;
-                OperationPerformed = "";
-            }
-            if (Calculation != "" && BracketCount > 0)
-            {
-                ErrorLabel.Text = "Complete the Calculation (Brackets)";
+                OperationPerformed = button.Text;
+                ResultValue = double.Parse(TextResult.Text);
+                CalcDisplay.Text = ResultValue + " " + OperationPerformed;
+                IsOperationPerformed = true;
                 TextResult.Text = "0";
             }
-        }
+            else //calc if brackets before root/power
+            {
+                char lastchar = Calculation.Last();
+                if (lastchar.Equals(')') && BracketCount == 0)
+                {
 
-        //Functions
+                    int result2 = Calculation.LastIndexOf('(', Calculation.Length - 2);
+                    int result1 = Calculation.LastIndexOf(')', Calculation.Length - 2);
+                    //if (result2 > result1)
+
+                   // finds section of calculation string to sum for power/root calc
+                        while (result2 < result1)
+                        {
+                            result2 = Calculation.LastIndexOf('(', result2 - 1);
+                            result1 = Calculation.LastIndexOf(')', result1 - 1);
+                        }
+                    AddCalc = Calculation.Substring(result2);
+                    OperationPerformed = button.Text;
+                    CalcDisplay.Text = Calculation + OperationPerformed;
+                    TextResult.Text = new DataTable().Compute(AddCalc, null).ToString();
+                    AddCalc = TextResult.Text;
+                    ResultValue = double.Parse(TextResult.Text);
+                    Calculation = Calculation.Substring(0,result2);
+                    CalcDisplay.Text = Calculation + AddCalc + OperationPerformed;
+                    TextResult.Text = "0";
+                    IsOperationPerformed = true;
+                }
+                if (lastchar.Equals('+') || lastchar.Equals('-') || lastchar.Equals('*') || lastchar.Equals('/'))
+                {
+                    AddCalc = TextResult.Text;
+                    OperationPerformed = button.Text;
+                    TextResult.Text = "0";
+                }
+
+
+            }
+        }
+       //Functions
         private void function_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
@@ -357,6 +306,98 @@ namespace Calculator2
             LastAnswer = true;
 
         }
+
+        //equals
+        private void answer_Click(object sender, EventArgs e)
+        {
+            ErrorLabel.Text = "";
+            if ((!LastAnswer) && OperationPerformed != "" && Calculation == "")
+            {
+                CalcDisplay.Text = ResultValue + " " + OperationPerformed + " " + TextResult.Text;
+            }
+            if (Calculation == "")
+            {
+                switch (OperationPerformed)
+
+                {
+                    case "+":
+                        TextResult.Text = (ResultValue + Double.Parse(TextResult.Text)).ToString();
+                        break;
+                    case "-":
+                        TextResult.Text = (ResultValue - Double.Parse(TextResult.Text)).ToString();
+                        break;
+                    case "*":
+                        TextResult.Text = (ResultValue * Double.Parse(TextResult.Text)).ToString();
+                        break;
+                    case "/":
+                        TextResult.Text = (ResultValue / Double.Parse(TextResult.Text)).ToString();
+                        break;
+                    case "^":
+                        TextResult.Text = Math.Pow(ResultValue, Double.Parse(TextResult.Text)).ToString();
+                        break;
+                    case "˟√":
+                        CalcDisplay.Text = TextResult.Text + " √ " + ResultValue;
+                        TextResult.Text = Math.Pow(ResultValue, 1 / Double.Parse(TextResult.Text)).ToString();
+                        break;
+                }
+                ResultValue = Double.Parse(TextResult.Text);
+                OperationPerformed = "";
+                MemRecall1 = false;
+                LastAnswer = true;
+                Calculation = "";
+            }
+            if (Calculation != "" && BracketCount == 0 && AddCalc=="")
+            {//final sum
+                if (TextResult.Text != "0")
+                    Calculation = Calculation + TextResult.Text;
+                CalcDisplay.Text = Calculation;
+                TextResult.Text = new DataTable().Compute(Calculation, null).ToString();
+                ResultValue = Double.Parse(TextResult.Text);
+                Calculation = "";
+                LastAnswer = true;
+                OperationPerformed = "";
+            }
+            if (Calculation != "" && BracketCount == 0 && AddCalc != "")
+            {
+                if (OperationPerformed == "^")
+                    AddCalc = Math.Pow(Double.Parse(AddCalc), Double.Parse(TextResult.Text)).ToString();
+                if (OperationPerformed == "˟√")
+                    AddCalc = Math.Pow(Double.Parse(AddCalc), 1 / Double.Parse(TextResult.Text)).ToString();
+                Calculation = Calculation + AddCalc;
+                CalcDisplay.Text = Calculation;
+                TextResult.Text = new DataTable().Compute(Calculation, null).ToString();
+                ResultValue = Double.Parse(TextResult.Text);
+                Calculation = "";
+                LastAnswer = true;
+                OperationPerformed = "";
+                AddCalc = "";
+            }
+            if (Calculation != "" && BracketCount > 0)
+            {
+                ErrorLabel.Text = "Complete the Calculation (Brackets)";
+                TextResult.Text = "0";
+            }
+
+        }
+        //Clear All
+        private void ButtonCE_Click(object sender, EventArgs e)
+        {
+            TextResult.Text = "0";
+            ResultValue = 0;
+            Calculation = "";
+            BracketCount = 0;
+            CalcDisplay.Text = "";
+            ErrorLabel.Text = "";
+        }
+
+        //Clear Text Box
+        private void ButtonClear_Click(object sender, EventArgs e)
+        {
+            TextResult.Text = "0";
+            ErrorLabel.Text = "";
+        }
+
+ 
 
 
 
@@ -469,37 +510,8 @@ namespace Calculator2
             }
         }
 
-        private void standardToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Width = 388;
-            TextResult.Width = 329;
-            IncDatesCheck.Visible = false;
-            DPNumber.Visible = false;
-            DPLabel.Visible = false;
-        }
 
-        private void scientificToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Width = 595;
-            TextResult.Width = 533;
-            DateBox1.Visible = false;
-            TempBox.Visible = false;
-            Radians.Visible = true;
-            Degrees.Visible = true;
-            WeightBox.Visible = false;
-            IncDatesCheck.Visible = false;
-            DPNumber.Visible = false;
-            DPLabel.Visible = false;
-        }
 
-        //load screen width
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            this.Width = 388;
-            TextResult.Width = 329;
-            DPNumber.Visible = false;
-            DPLabel.Visible = false;
-        }
 
         private void e_Click(object sender, EventArgs e)
         {
@@ -511,8 +523,26 @@ namespace Calculator2
         //calculation from string
         private void button10_Click(object sender, EventArgs e)
         {
-            String test = "(2*3)+4";
-            TextResult.Text = new DataTable().Compute(test, null).ToString();
+            string s = "(2+(2*(3*2)))";
+            string result3 = "";
+            //int result3 = s.Length;
+            int result2 = s.LastIndexOf('(',s.Length-2);
+            int result1 = s.LastIndexOf(')', s.Length - 2);
+            if (result2>result1)
+            //string to right of open bracket once logic confirmed
+                result3 = s.Substring(result2);
+            else
+            {
+                while (result2 < result1)
+                {
+                    result2 = s.LastIndexOf('(', result2 - 1);
+                    result1 = s.LastIndexOf(')', result1 - 1);
+                }
+                result3 = s.Substring(0,result2);
+            }
+
+            ErrorLabel.Text = result3.ToString();
+
         }
 
         private void openbracket_Click(object sender, EventArgs e)
@@ -558,8 +588,6 @@ namespace Calculator2
                         case ("("):
                             ErrorLabel.Text = "Can't add open bracket here";
                             break;
-
-
                     }
                 }
             }
@@ -576,7 +604,6 @@ namespace Calculator2
             }
 
             CalcDisplay.Text = Calculation;
-            //TextResult.Text = BracketCount.ToString();
         }
 
         private void closebracket_Click(object sender, EventArgs e)
@@ -605,20 +632,10 @@ namespace Calculator2
         //test
 
 
-        private void testingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Width = 1000;
-            TextResult.Width = 533;
-        }
+
 
         private void DateValueChanged(object sender, EventArgs e)
         {
-            //if (Date1.Value > Date2.Value)
-            //{
-            //DateTime holddate = Date1.Value.Date;
-            //Date1.Value = Date2.Value.Date;
-            //Date2.Value = holddate.Date;
-            //}
             if (Date1.Value.Date < Date2.Value.Date && IncDatesCheck.Checked)
                 DaysOnly.Text = ((Date2.Value.Date.AddDays(1) - Date1.Value.Date).TotalDays).ToString() + " Days";
             if (Date1.Value.Date == Date2.Value.Date && IncDatesCheck.Checked)
@@ -680,21 +697,6 @@ namespace Calculator2
                 DaysCalc.Text = days.ToString() + string3;
 
         }
-        //Date option
-        private void datesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Width = 595;
-            TextResult.Width = 533;
-            TempBox.Visible = false;
-            DateBox1.Visible = true;
-            IncDatesCheck.Visible = true;
-            WeightBox.Visible = false;
-            Radians.Visible = false;
-            Degrees.Visible = false;
-            DPNumber.Visible = false;
-            DPLabel.Visible = false;
-        }
-
         private void comboBox1_DropDownClosed(object sender, EventArgs e)
         {
             LastAnswer = true;
@@ -735,6 +737,53 @@ namespace Calculator2
             TempUnit.Select(0, 0);
         }
 
+        //load screen width
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.Width = 388;
+            TextResult.Width = 329;
+            DPNumber.Visible = false;
+            DPLabel.Visible = false;
+        }
+        //Standard Calc
+        private void standardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Width = 388;
+            TextResult.Width = 329;
+            IncDatesCheck.Visible = false;
+            DPNumber.Visible = false;
+            DPLabel.Visible = false;
+        }
+        //Scientific Calc
+        private void scientificToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Width = 595;
+            TextResult.Width = 533;
+            DateBox1.Visible = false;
+            TempBox.Visible = false;
+            Radians.Visible = true;
+            Degrees.Visible = true;
+            WeightBox.Visible = false;
+            IncDatesCheck.Visible = false;
+            DPNumber.Visible = false;
+            DPLabel.Visible = false;
+        }
+        //Date Calc
+        private void datesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Width = 595;
+            TextResult.Width = 533;
+            TempBox.Visible = false;
+            DateBox1.Visible = true;
+            IncDatesCheck.Visible = true;
+            WeightBox.Visible = false;
+            Radians.Visible = false;
+            Degrees.Visible = false;
+            DPNumber.Visible = false;
+            DPLabel.Visible = false;
+        }
+
+        //Temp Calc
         private void temperatureToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Width = 595;
@@ -749,12 +798,7 @@ namespace Calculator2
             DPLabel.Visible = false;
             RecalcTemp.PerformClick();
         }
-
-        public void WeightCalc(object sender, EventArgs e)
-        {
-            WeightRefresh();
-        }
-
+        //Weight Calc
         private void weightToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Width = 595;
@@ -772,7 +816,7 @@ namespace Calculator2
             IncDatesCheck.Visible = false;
             RecalcTemp.PerformClick();
         }
-
+        //Distance Calc
         private void distanceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Width = 595;
@@ -789,6 +833,22 @@ namespace Calculator2
             DPLabel.Visible = true;
             IncDatesCheck.Visible = false;
             RecalcTemp.PerformClick();
+        }
+        //Testing setting
+        private void testingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Width = 1000;
+            TextResult.Width = 533;
+        }
+
+        private void DistChange(object sender, EventArgs e)
+        {
+            DistanceRefresh();
+        }
+
+        public void WeightCalc(object sender, EventArgs e)
+        {
+            WeightRefresh();
         }
 
         public void Recalc(object sender, EventArgs e)
@@ -952,10 +1012,7 @@ namespace Calculator2
             }
         }
 
-        private void DistChange(object sender, EventArgs e)
-        {
-            DistanceRefresh();
-        }
+
     }
 }
 
