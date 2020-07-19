@@ -49,7 +49,6 @@
             this.ButtonCE = new System.Windows.Forms.Button();
             this.TextResult = new System.Windows.Forms.TextBox();
             this.CalcDisplay = new System.Windows.Forms.Label();
-            this.Pi = new System.Windows.Forms.Button();
             this.inverse = new System.Windows.Forms.Button();
             this.root = new System.Windows.Forms.Button();
             this.square = new System.Windows.Forms.Button();
@@ -67,7 +66,8 @@
             this.temperatureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.distanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.weightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.testingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.volumeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.binaryOctHexaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,22 +89,22 @@
             this.eulersnumber = new System.Windows.Forms.Button();
             this.Radians = new System.Windows.Forms.RadioButton();
             this.Degrees = new System.Windows.Forms.RadioButton();
-            this.button10 = new System.Windows.Forms.Button();
             this.ErrorLabel = new System.Windows.Forms.Label();
             this.Date1 = new System.Windows.Forms.DateTimePicker();
             this.TempUnit = new System.Windows.Forms.ComboBox();
             this.DateBox1 = new System.Windows.Forms.GroupBox();
-            this.TempBox = new System.Windows.Forms.GroupBox();
-            this.RecalcTemp = new System.Windows.Forms.Button();
-            this.Temp2 = new System.Windows.Forms.Label();
-            this.Temp1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.DaysOnly = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.DaysCalc = new System.Windows.Forms.Label();
             this.Date2 = new System.Windows.Forms.DateTimePicker();
+            this.TempBox = new System.Windows.Forms.GroupBox();
+            this.RecalcTemp = new System.Windows.Forms.Button();
+            this.Temp2 = new System.Windows.Forms.Label();
+            this.Temp1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.WeightBox = new System.Windows.Forms.GroupBox();
+            this.VolUnit = new System.Windows.Forms.ComboBox();
             this.DistUnit = new System.Windows.Forms.ComboBox();
             this.Weight2 = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
@@ -115,11 +115,39 @@
             this.IncDatesCheck = new System.Windows.Forms.CheckBox();
             this.DPNumber = new System.Windows.Forms.NumericUpDown();
             this.DPLabel = new System.Windows.Forms.Label();
+            this.Pi = new System.Windows.Forms.Button();
+            this.factorial = new System.Windows.Forms.Button();
+            this.mod = new System.Windows.Forms.Button();
+            this.Random = new System.Windows.Forms.Button();
+            this.Percent = new System.Windows.Forms.Button();
+            this.EXP = new System.Windows.Forms.Button();
+            this.Programmer = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.octal = new System.Windows.Forms.Label();
+            this.Hexidecimal = new System.Windows.Forms.Button();
+            this.hexa = new System.Windows.Forms.Label();
+            this.binary = new System.Windows.Forms.Label();
+            this.TimeBox = new System.Windows.Forms.GroupBox();
+            this.TimeUnit1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.TimeRecalc = new System.Windows.Forms.Button();
+            this.TimeResult = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.TimeUnit2 = new System.Windows.Forms.ComboBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.Arrow = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.DateBox1.SuspendLayout();
             this.TempBox.SuspendLayout();
             this.WeightBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DPNumber)).BeginInit();
+            this.Programmer.SuspendLayout();
+            this.TimeBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -366,7 +394,7 @@
             this.TextResult.Location = new System.Drawing.Point(24, 96);
             this.TextResult.Name = "TextResult";
             this.TextResult.ReadOnly = true;
-            this.TextResult.Size = new System.Drawing.Size(533, 32);
+            this.TextResult.Size = new System.Drawing.Size(589, 32);
             this.TextResult.TabIndex = 19;
             this.TextResult.Text = "0";
             this.TextResult.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -385,19 +413,6 @@
             this.CalcDisplay.UseCompatibleTextRendering = true;
             this.CalcDisplay.UseMnemonic = false;
             // 
-            // Pi
-            // 
-            this.Pi.BackColor = System.Drawing.Color.Beige;
-            this.Pi.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Pi.Location = new System.Drawing.Point(24, 304);
-            this.Pi.Name = "Pi";
-            this.Pi.Size = new System.Drawing.Size(50, 50);
-            this.Pi.TabIndex = 25;
-            this.Pi.TabStop = false;
-            this.Pi.Text = "π";
-            this.Pi.UseVisualStyleBackColor = false;
-            this.Pi.Click += new System.EventHandler(this.ValuePi);
-            // 
             // inverse
             // 
             this.inverse.BackColor = System.Drawing.Color.Beige;
@@ -407,7 +422,7 @@
             this.inverse.Size = new System.Drawing.Size(50, 50);
             this.inverse.TabIndex = 24;
             this.inverse.TabStop = false;
-            this.inverse.Text = "1/ꭓ";
+            this.inverse.Text = "1/x";
             this.inverse.UseVisualStyleBackColor = false;
             this.inverse.Click += new System.EventHandler(this.inverse_Click);
             // 
@@ -422,7 +437,7 @@
             this.root.TabStop = false;
             this.root.Text = "√";
             this.root.UseVisualStyleBackColor = false;
-            this.root.Click += new System.EventHandler(this.root_Click);
+            this.root.Click += new System.EventHandler(this.function_Click);
             // 
             // square
             // 
@@ -433,9 +448,9 @@
             this.square.Size = new System.Drawing.Size(50, 50);
             this.square.TabIndex = 22;
             this.square.TabStop = false;
-            this.square.Text = "ꭓ²";
+            this.square.Text = "x²";
             this.square.UseVisualStyleBackColor = false;
-            this.square.Click += new System.EventHandler(this.Square);
+            this.square.Click += new System.EventHandler(this.function_Click);
             // 
             // NegativeSign
             // 
@@ -522,7 +537,7 @@
             this.editToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(829, 24);
             this.menuStrip1.TabIndex = 31;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -535,7 +550,8 @@
             this.temperatureToolStripMenuItem,
             this.distanceToolStripMenuItem,
             this.weightToolStripMenuItem,
-            this.testingToolStripMenuItem});
+            this.volumeToolStripMenuItem,
+            this.binaryOctHexaToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -543,51 +559,58 @@
             // standardToolStripMenuItem
             // 
             this.standardToolStripMenuItem.Name = "standardToolStripMenuItem";
-            this.standardToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.standardToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.standardToolStripMenuItem.Text = "Standard";
             this.standardToolStripMenuItem.Click += new System.EventHandler(this.standardToolStripMenuItem_Click);
             // 
             // scientificToolStripMenuItem
             // 
             this.scientificToolStripMenuItem.Name = "scientificToolStripMenuItem";
-            this.scientificToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.scientificToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.scientificToolStripMenuItem.Text = "Scientific";
             this.scientificToolStripMenuItem.Click += new System.EventHandler(this.scientificToolStripMenuItem_Click);
             // 
             // datesToolStripMenuItem
             // 
             this.datesToolStripMenuItem.Name = "datesToolStripMenuItem";
-            this.datesToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.datesToolStripMenuItem.Text = "Dates";
+            this.datesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.datesToolStripMenuItem.Text = "Dates / Time";
             this.datesToolStripMenuItem.Click += new System.EventHandler(this.datesToolStripMenuItem_Click);
             // 
             // temperatureToolStripMenuItem
             // 
             this.temperatureToolStripMenuItem.Name = "temperatureToolStripMenuItem";
-            this.temperatureToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.temperatureToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.temperatureToolStripMenuItem.Text = "Temperature";
             this.temperatureToolStripMenuItem.Click += new System.EventHandler(this.temperatureToolStripMenuItem_Click);
             // 
             // distanceToolStripMenuItem
             // 
             this.distanceToolStripMenuItem.Name = "distanceToolStripMenuItem";
-            this.distanceToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.distanceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.distanceToolStripMenuItem.Text = "Distance/Length";
             this.distanceToolStripMenuItem.Click += new System.EventHandler(this.distanceToolStripMenuItem_Click);
             // 
             // weightToolStripMenuItem
             // 
             this.weightToolStripMenuItem.Name = "weightToolStripMenuItem";
-            this.weightToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.weightToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.weightToolStripMenuItem.Text = "Weight";
             this.weightToolStripMenuItem.Click += new System.EventHandler(this.weightToolStripMenuItem_Click);
             // 
-            // testingToolStripMenuItem
+            // volumeToolStripMenuItem
             // 
-            this.testingToolStripMenuItem.Name = "testingToolStripMenuItem";
-            this.testingToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.testingToolStripMenuItem.Text = "Testing";
-            this.testingToolStripMenuItem.Click += new System.EventHandler(this.testingToolStripMenuItem_Click);
+            this.volumeToolStripMenuItem.Name = "volumeToolStripMenuItem";
+            this.volumeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.volumeToolStripMenuItem.Text = "Volume";
+            this.volumeToolStripMenuItem.Click += new System.EventHandler(this.volumeToolStripMenuItem_Click);
+            // 
+            // binaryOctHexaToolStripMenuItem
+            // 
+            this.binaryOctHexaToolStripMenuItem.Name = "binaryOctHexaToolStripMenuItem";
+            this.binaryOctHexaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.binaryOctHexaToolStripMenuItem.Text = "Binary/Oct/Hexa";
+            this.binaryOctHexaToolStripMenuItem.Click += new System.EventHandler(this.binaryOctHexaToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -627,7 +650,7 @@
             // 
             this.log10.BackColor = System.Drawing.Color.Beige;
             this.log10.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.log10.Location = new System.Drawing.Point(451, 358);
+            this.log10.Location = new System.Drawing.Point(507, 360);
             this.log10.Name = "log10";
             this.log10.Size = new System.Drawing.Size(50, 50);
             this.log10.TabIndex = 36;
@@ -640,7 +663,7 @@
             // 
             this.exponent10.BackColor = System.Drawing.Color.Beige;
             this.exponent10.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exponent10.Location = new System.Drawing.Point(451, 302);
+            this.exponent10.Location = new System.Drawing.Point(507, 304);
             this.exponent10.Name = "exponent10";
             this.exponent10.Size = new System.Drawing.Size(50, 50);
             this.exponent10.TabIndex = 35;
@@ -692,7 +715,7 @@
             // 
             this.loge.BackColor = System.Drawing.Color.Beige;
             this.loge.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loge.Location = new System.Drawing.Point(507, 358);
+            this.loge.Location = new System.Drawing.Point(563, 360);
             this.loge.Name = "loge";
             this.loge.Size = new System.Drawing.Size(50, 50);
             this.loge.TabIndex = 41;
@@ -705,7 +728,7 @@
             // 
             this.exponente.BackColor = System.Drawing.Color.Beige;
             this.exponente.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exponente.Location = new System.Drawing.Point(507, 302);
+            this.exponente.Location = new System.Drawing.Point(563, 304);
             this.exponente.Name = "exponente";
             this.exponente.Size = new System.Drawing.Size(50, 50);
             this.exponente.TabIndex = 40;
@@ -762,7 +785,7 @@
             this.power.Size = new System.Drawing.Size(50, 50);
             this.power.TabIndex = 46;
             this.power.TabStop = false;
-            this.power.Text = "^";
+            this.power.Text = "xʸ";
             this.power.UseVisualStyleBackColor = false;
             this.power.Click += new System.EventHandler(this.operator2);
             // 
@@ -775,7 +798,7 @@
             this.xroot.Size = new System.Drawing.Size(50, 50);
             this.xroot.TabIndex = 45;
             this.xroot.TabStop = false;
-            this.xroot.Text = "˟√";
+            this.xroot.Text = "ʸ√x";
             this.xroot.UseVisualStyleBackColor = false;
             this.xroot.Click += new System.EventHandler(this.operator2);
             // 
@@ -823,7 +846,7 @@
             this.Radians.AutoSize = true;
             this.Radians.Checked = true;
             this.Radians.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Radians.Location = new System.Drawing.Point(475, 27);
+            this.Radians.Location = new System.Drawing.Point(531, 27);
             this.Radians.Name = "Radians";
             this.Radians.Size = new System.Drawing.Size(82, 23);
             this.Radians.TabIndex = 48;
@@ -835,24 +858,12 @@
             // 
             this.Degrees.AutoSize = true;
             this.Degrees.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Degrees.Location = new System.Drawing.Point(475, 56);
+            this.Degrees.Location = new System.Drawing.Point(531, 56);
             this.Degrees.Name = "Degrees";
             this.Degrees.Size = new System.Drawing.Size(84, 23);
             this.Degrees.TabIndex = 49;
             this.Degrees.Text = "Degrees";
             this.Degrees.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.BackColor = System.Drawing.Color.Beige;
-            this.button10.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(623, 143);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(105, 50);
-            this.button10.TabIndex = 50;
-            this.button10.Text = "test";
-            this.button10.UseVisualStyleBackColor = false;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // ErrorLabel
             // 
@@ -871,7 +882,7 @@
             this.Date1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.Date1.Location = new System.Drawing.Point(20, 58);
             this.Date1.Name = "Date1";
-            this.Date1.Size = new System.Drawing.Size(163, 30);
+            this.Date1.Size = new System.Drawing.Size(160, 30);
             this.Date1.TabIndex = 53;
             this.Date1.ValueChanged += new System.EventHandler(this.DateValueChanged);
             // 
@@ -903,68 +914,13 @@
             this.DateBox1.Controls.Add(this.Date2);
             this.DateBox1.Controls.Add(this.Date1);
             this.DateBox1.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateBox1.Location = new System.Drawing.Point(359, 135);
+            this.DateBox1.Location = new System.Drawing.Point(360, 134);
             this.DateBox1.Name = "DateBox1";
             this.DateBox1.Size = new System.Drawing.Size(200, 275);
             this.DateBox1.TabIndex = 55;
             this.DateBox1.TabStop = false;
             this.DateBox1.Text = "     Dates Calculator     ";
             this.DateBox1.Visible = false;
-            // 
-            // TempBox
-            // 
-            this.TempBox.BackColor = System.Drawing.SystemColors.Control;
-            this.TempBox.Controls.Add(this.RecalcTemp);
-            this.TempBox.Controls.Add(this.Temp2);
-            this.TempBox.Controls.Add(this.Temp1);
-            this.TempBox.Controls.Add(this.label3);
-            this.TempBox.Controls.Add(this.TempUnit);
-            this.TempBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TempBox.Location = new System.Drawing.Point(359, 135);
-            this.TempBox.Name = "TempBox";
-            this.TempBox.Size = new System.Drawing.Size(200, 275);
-            this.TempBox.TabIndex = 56;
-            this.TempBox.TabStop = false;
-            this.TempBox.Text = "        Temperature        ";
-            this.TempBox.Visible = false;
-            // 
-            // RecalcTemp
-            // 
-            this.RecalcTemp.Location = new System.Drawing.Point(21, 238);
-            this.RecalcTemp.Name = "RecalcTemp";
-            this.RecalcTemp.Size = new System.Drawing.Size(158, 31);
-            this.RecalcTemp.TabIndex = 60;
-            this.RecalcTemp.Text = "Recalculate";
-            this.RecalcTemp.UseVisualStyleBackColor = true;
-            this.RecalcTemp.Click += new System.EventHandler(this.comboBox1_DropDownClosed);
-            // 
-            // Temp2
-            // 
-            this.Temp2.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Temp2.Location = new System.Drawing.Point(21, 166);
-            this.Temp2.Name = "Temp2";
-            this.Temp2.Size = new System.Drawing.Size(158, 69);
-            this.Temp2.TabIndex = 59;
-            this.Temp2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Temp1
-            // 
-            this.Temp1.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Temp1.Location = new System.Drawing.Point(21, 104);
-            this.Temp1.Name = "Temp1";
-            this.Temp1.Size = new System.Drawing.Size(162, 62);
-            this.Temp1.TabIndex = 58;
-            this.Temp1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(17, 40);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 22);
-            this.label3.TabIndex = 57;
-            this.label3.Text = "Converting from:";
             // 
             // DaysOnly
             // 
@@ -1015,13 +971,69 @@
             this.Date2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.Date2.Location = new System.Drawing.Point(20, 125);
             this.Date2.Name = "Date2";
-            this.Date2.Size = new System.Drawing.Size(163, 30);
+            this.Date2.Size = new System.Drawing.Size(160, 30);
             this.Date2.TabIndex = 54;
             this.Date2.ValueChanged += new System.EventHandler(this.DateValueChanged);
+            // 
+            // TempBox
+            // 
+            this.TempBox.BackColor = System.Drawing.SystemColors.Control;
+            this.TempBox.Controls.Add(this.RecalcTemp);
+            this.TempBox.Controls.Add(this.Temp2);
+            this.TempBox.Controls.Add(this.Temp1);
+            this.TempBox.Controls.Add(this.label3);
+            this.TempBox.Controls.Add(this.TempUnit);
+            this.TempBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TempBox.Location = new System.Drawing.Point(360, 135);
+            this.TempBox.Name = "TempBox";
+            this.TempBox.Size = new System.Drawing.Size(199, 275);
+            this.TempBox.TabIndex = 56;
+            this.TempBox.TabStop = false;
+            this.TempBox.Text = "        Temperature        ";
+            this.TempBox.Visible = false;
+            // 
+            // RecalcTemp
+            // 
+            this.RecalcTemp.Location = new System.Drawing.Point(21, 238);
+            this.RecalcTemp.Name = "RecalcTemp";
+            this.RecalcTemp.Size = new System.Drawing.Size(158, 31);
+            this.RecalcTemp.TabIndex = 60;
+            this.RecalcTemp.Text = "Recalculate";
+            this.RecalcTemp.UseVisualStyleBackColor = true;
+            this.RecalcTemp.Click += new System.EventHandler(this.comboBox1_DropDownClosed);
+            // 
+            // Temp2
+            // 
+            this.Temp2.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Temp2.Location = new System.Drawing.Point(21, 166);
+            this.Temp2.Name = "Temp2";
+            this.Temp2.Size = new System.Drawing.Size(158, 69);
+            this.Temp2.TabIndex = 59;
+            this.Temp2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Temp1
+            // 
+            this.Temp1.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Temp1.Location = new System.Drawing.Point(21, 104);
+            this.Temp1.Name = "Temp1";
+            this.Temp1.Size = new System.Drawing.Size(162, 62);
+            this.Temp1.TabIndex = 58;
+            this.Temp1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(17, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(149, 22);
+            this.label3.TabIndex = 57;
+            this.label3.Text = "Converting from:";
             // 
             // WeightBox
             // 
             this.WeightBox.BackColor = System.Drawing.SystemColors.Control;
+            this.WeightBox.Controls.Add(this.VolUnit);
             this.WeightBox.Controls.Add(this.DistUnit);
             this.WeightBox.Controls.Add(this.Weight2);
             this.WeightBox.Controls.Add(this.button11);
@@ -1030,12 +1042,36 @@
             this.WeightBox.Controls.Add(this.label6);
             this.WeightBox.Controls.Add(this.WeightUnit);
             this.WeightBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeightBox.Location = new System.Drawing.Point(359, 133);
+            this.WeightBox.Location = new System.Drawing.Point(361, 135);
             this.WeightBox.Name = "WeightBox";
-            this.WeightBox.Size = new System.Drawing.Size(200, 277);
+            this.WeightBox.Size = new System.Drawing.Size(197, 277);
             this.WeightBox.TabIndex = 61;
             this.WeightBox.TabStop = false;
             this.WeightBox.Text = "               Weight               ";
+            // 
+            // VolUnit
+            // 
+            this.VolUnit.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VolUnit.Items.AddRange(new object[] {
+            "Millilitres",
+            "Litres",
+            "Cubic Metres",
+            "Teaspoons",
+            "Tablespoons",
+            "Fluid Ounces",
+            "Pints",
+            "Quarts",
+            "Gallons",
+            "Cubic Feet"});
+            this.VolUnit.Location = new System.Drawing.Point(21, 74);
+            this.VolUnit.Name = "VolUnit";
+            this.VolUnit.Size = new System.Drawing.Size(158, 27);
+            this.VolUnit.TabIndex = 63;
+            this.VolUnit.TabStop = false;
+            this.VolUnit.Text = "Millilitres";
+            this.VolUnit.DropDown += new System.EventHandler(this.VolCalc);
+            this.VolUnit.DropDownClosed += new System.EventHandler(this.VolCalc);
+            this.VolUnit.SelectedValueChanged += new System.EventHandler(this.VolCalc);
             // 
             // DistUnit
             // 
@@ -1130,7 +1166,7 @@
             this.IncDatesCheck.Checked = true;
             this.IncDatesCheck.CheckState = System.Windows.Forms.CheckState.Checked;
             this.IncDatesCheck.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IncDatesCheck.Location = new System.Drawing.Point(421, 44);
+            this.IncDatesCheck.Location = new System.Drawing.Point(375, 54);
             this.IncDatesCheck.Name = "IncDatesCheck";
             this.IncDatesCheck.Size = new System.Drawing.Size(132, 23);
             this.IncDatesCheck.TabIndex = 62;
@@ -1164,19 +1200,372 @@
             this.DPLabel.TabIndex = 64;
             this.DPLabel.Text = "Number of Decimal Places:";
             // 
+            // Pi
+            // 
+            this.Pi.BackColor = System.Drawing.Color.Beige;
+            this.Pi.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Pi.Location = new System.Drawing.Point(563, 134);
+            this.Pi.Name = "Pi";
+            this.Pi.Size = new System.Drawing.Size(50, 50);
+            this.Pi.TabIndex = 25;
+            this.Pi.TabStop = false;
+            this.Pi.Text = "π";
+            this.Pi.UseVisualStyleBackColor = false;
+            this.Pi.Click += new System.EventHandler(this.ValuePi);
+            // 
+            // factorial
+            // 
+            this.factorial.BackColor = System.Drawing.Color.Beige;
+            this.factorial.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.factorial.Location = new System.Drawing.Point(563, 192);
+            this.factorial.Name = "factorial";
+            this.factorial.Size = new System.Drawing.Size(50, 50);
+            this.factorial.TabIndex = 65;
+            this.factorial.TabStop = false;
+            this.factorial.Text = "n!";
+            this.factorial.UseVisualStyleBackColor = false;
+            this.factorial.Click += new System.EventHandler(this.function_Click);
+            // 
+            // mod
+            // 
+            this.mod.AccessibleName = "%";
+            this.mod.BackColor = System.Drawing.Color.PapayaWhip;
+            this.mod.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mod.Location = new System.Drawing.Point(451, 358);
+            this.mod.Name = "mod";
+            this.mod.Size = new System.Drawing.Size(50, 50);
+            this.mod.TabIndex = 66;
+            this.mod.TabStop = false;
+            this.mod.Tag = "";
+            this.mod.Text = "Mod";
+            this.mod.UseVisualStyleBackColor = false;
+            this.mod.Click += new System.EventHandler(this.operator1);
+            // 
+            // Random
+            // 
+            this.Random.BackColor = System.Drawing.Color.Beige;
+            this.Random.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Random.Location = new System.Drawing.Point(563, 248);
+            this.Random.Name = "Random";
+            this.Random.Size = new System.Drawing.Size(50, 50);
+            this.Random.TabIndex = 67;
+            this.Random.TabStop = false;
+            this.Random.Text = "RND";
+            this.Random.UseVisualStyleBackColor = false;
+            this.Random.Click += new System.EventHandler(this.Random_Click);
+            // 
+            // Percent
+            // 
+            this.Percent.BackColor = System.Drawing.Color.Beige;
+            this.Percent.Font = new System.Drawing.Font("Cambria", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Percent.Location = new System.Drawing.Point(24, 304);
+            this.Percent.Name = "Percent";
+            this.Percent.Size = new System.Drawing.Size(50, 50);
+            this.Percent.TabIndex = 68;
+            this.Percent.TabStop = false;
+            this.Percent.Text = "%";
+            this.Percent.UseVisualStyleBackColor = false;
+            this.Percent.Click += new System.EventHandler(this.function_Click);
+            // 
+            // EXP
+            // 
+            this.EXP.BackColor = System.Drawing.Color.PapayaWhip;
+            this.EXP.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EXP.Location = new System.Drawing.Point(451, 302);
+            this.EXP.Name = "EXP";
+            this.EXP.Size = new System.Drawing.Size(50, 50);
+            this.EXP.TabIndex = 69;
+            this.EXP.TabStop = false;
+            this.EXP.Text = "Exp";
+            this.EXP.UseVisualStyleBackColor = false;
+            this.EXP.Click += new System.EventHandler(this.operator2);
+            // 
+            // Programmer
+            // 
+            this.Programmer.BackColor = System.Drawing.SystemColors.Control;
+            this.Programmer.Controls.Add(this.label8);
+            this.Programmer.Controls.Add(this.label5);
+            this.Programmer.Controls.Add(this.label4);
+            this.Programmer.Controls.Add(this.octal);
+            this.Programmer.Controls.Add(this.Hexidecimal);
+            this.Programmer.Controls.Add(this.hexa);
+            this.Programmer.Controls.Add(this.binary);
+            this.Programmer.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Programmer.Location = new System.Drawing.Point(359, 132);
+            this.Programmer.Name = "Programmer";
+            this.Programmer.Size = new System.Drawing.Size(200, 277);
+            this.Programmer.TabIndex = 64;
+            this.Programmer.TabStop = false;
+            this.Programmer.Text = "        Programmer        ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(17, 24);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 19);
+            this.label8.TabIndex = 57;
+            this.label8.Text = "Binary:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(17, 170);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(101, 19);
+            this.label5.TabIndex = 63;
+            this.label5.Text = "Hexadecimal:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(17, 106);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 19);
+            this.label4.TabIndex = 62;
+            this.label4.Text = "Octal:";
+            // 
+            // octal
+            // 
+            this.octal.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.octal.Location = new System.Drawing.Point(17, 125);
+            this.octal.Name = "octal";
+            this.octal.Size = new System.Drawing.Size(158, 39);
+            this.octal.TabIndex = 61;
+            this.octal.Text = "1";
+            this.octal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Hexidecimal
+            // 
+            this.Hexidecimal.Location = new System.Drawing.Point(21, 238);
+            this.Hexidecimal.Name = "Hexidecimal";
+            this.Hexidecimal.Size = new System.Drawing.Size(158, 31);
+            this.Hexidecimal.TabIndex = 60;
+            this.Hexidecimal.Text = "Recalculate";
+            this.Hexidecimal.UseVisualStyleBackColor = true;
+            this.Hexidecimal.Click += new System.EventHandler(this.Hexidecimal_Click);
+            // 
+            // hexa
+            // 
+            this.hexa.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hexa.Location = new System.Drawing.Point(17, 191);
+            this.hexa.Name = "hexa";
+            this.hexa.Size = new System.Drawing.Size(158, 39);
+            this.hexa.TabIndex = 59;
+            this.hexa.Text = "1";
+            this.hexa.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // binary
+            // 
+            this.binary.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.binary.Location = new System.Drawing.Point(13, 43);
+            this.binary.Name = "binary";
+            this.binary.Size = new System.Drawing.Size(162, 61);
+            this.binary.TabIndex = 58;
+            this.binary.Text = "1";
+            this.binary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TimeBox
+            // 
+            this.TimeBox.BackColor = System.Drawing.SystemColors.Control;
+            this.TimeBox.Controls.Add(this.TimeUnit2);
+            this.TimeBox.Controls.Add(this.comboBox5);
+            this.TimeBox.Controls.Add(this.label7);
+            this.TimeBox.Controls.Add(this.comboBox6);
+            this.TimeBox.Controls.Add(this.TimeUnit1);
+            this.TimeBox.Controls.Add(this.comboBox2);
+            this.TimeBox.Controls.Add(this.TimeRecalc);
+            this.TimeBox.Controls.Add(this.TimeResult);
+            this.TimeBox.Controls.Add(this.label11);
+            this.TimeBox.Controls.Add(this.comboBox3);
+            this.TimeBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TimeBox.Location = new System.Drawing.Point(564, 39);
+            this.TimeBox.Name = "TimeBox";
+            this.TimeBox.Size = new System.Drawing.Size(249, 374);
+            this.TimeBox.TabIndex = 64;
+            this.TimeBox.TabStop = false;
+            this.TimeBox.Text = "                       Time                       ";
+            // 
+            // TimeUnit1
+            // 
+            this.TimeUnit1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TimeUnit1.Items.AddRange(new object[] {
+            "Years",
+            "Weeks",
+            "Days",
+            "Hours",
+            "Minutes",
+            "Seconds",
+            "Milliseconds"});
+            this.TimeUnit1.Location = new System.Drawing.Point(21, 74);
+            this.TimeUnit1.Name = "TimeUnit1";
+            this.TimeUnit1.Size = new System.Drawing.Size(207, 27);
+            this.TimeUnit1.TabIndex = 63;
+            this.TimeUnit1.TabStop = false;
+            this.TimeUnit1.Text = "Years";
+            this.TimeUnit1.DropDown += new System.EventHandler(this.TimeRecalc_Click);
+            this.TimeUnit1.DropDownClosed += new System.EventHandler(this.TimeRecalc_Click);
+            this.TimeUnit1.TextChanged += new System.EventHandler(this.TimeRecalc_Click);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.Items.AddRange(new object[] {
+            "Inches",
+            "Feet",
+            "Yards",
+            "Miles",
+            "Centimetres",
+            "Metres",
+            "Kilometres"});
+            this.comboBox2.Location = new System.Drawing.Point(21, 74);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(158, 27);
+            this.comboBox2.TabIndex = 62;
+            this.comboBox2.TabStop = false;
+            this.comboBox2.Text = "Miles";
+            // 
+            // TimeRecalc
+            // 
+            this.TimeRecalc.Location = new System.Drawing.Point(21, 334);
+            this.TimeRecalc.Name = "TimeRecalc";
+            this.TimeRecalc.Size = new System.Drawing.Size(207, 31);
+            this.TimeRecalc.TabIndex = 60;
+            this.TimeRecalc.Text = "Recalculate";
+            this.TimeRecalc.UseVisualStyleBackColor = true;
+            this.TimeRecalc.Click += new System.EventHandler(this.TimeRecalc_Click);
+            // 
+            // TimeResult
+            // 
+            this.TimeResult.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TimeResult.Location = new System.Drawing.Point(21, 199);
+            this.TimeResult.Name = "TimeResult";
+            this.TimeResult.Size = new System.Drawing.Size(207, 116);
+            this.TimeResult.TabIndex = 59;
+            this.TimeResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(17, 40);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(149, 22);
+            this.label11.TabIndex = 57;
+            this.label11.Text = "Converting from:";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.Items.AddRange(new object[] {
+            "Ounces (oz)",
+            "Pounds (lb)",
+            "Stone (st.)",
+            "Gram (g)",
+            "Kilogram (kg)"});
+            this.comboBox3.Location = new System.Drawing.Point(21, 74);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(158, 27);
+            this.comboBox3.TabIndex = 54;
+            this.comboBox3.TabStop = false;
+            this.comboBox3.Text = "Kilogram (kg)";
+            // 
+            // TimeUnit2
+            // 
+            this.TimeUnit2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TimeUnit2.Items.AddRange(new object[] {
+            "Years",
+            "Weeks",
+            "Days",
+            "Hours",
+            "Minutes",
+            "Seconds",
+            "Milliseconds"});
+            this.TimeUnit2.Location = new System.Drawing.Point(21, 153);
+            this.TimeUnit2.Name = "TimeUnit2";
+            this.TimeUnit2.Size = new System.Drawing.Size(207, 27);
+            this.TimeUnit2.TabIndex = 67;
+            this.TimeUnit2.TabStop = false;
+            this.TimeUnit2.Text = "Years";
+            this.TimeUnit2.DropDown += new System.EventHandler(this.TimeRecalc_Click);
+            this.TimeUnit2.DropDownClosed += new System.EventHandler(this.TimeRecalc_Click);
+            this.TimeUnit2.TextChanged += new System.EventHandler(this.TimeRecalc_Click);
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox5.Items.AddRange(new object[] {
+            "Inches",
+            "Feet",
+            "Yards",
+            "Miles",
+            "Centimetres",
+            "Metres",
+            "Kilometres"});
+            this.comboBox5.Location = new System.Drawing.Point(21, 153);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(158, 27);
+            this.comboBox5.TabIndex = 66;
+            this.comboBox5.TabStop = false;
+            this.comboBox5.Text = "Miles";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(17, 119);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(125, 22);
+            this.label7.TabIndex = 65;
+            this.label7.Text = "Converting to:";
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox6.Items.AddRange(new object[] {
+            "Ounces (oz)",
+            "Pounds (lb)",
+            "Stone (st.)",
+            "Gram (g)",
+            "Kilogram (kg)"});
+            this.comboBox6.Location = new System.Drawing.Point(21, 153);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(158, 27);
+            this.comboBox6.TabIndex = 64;
+            this.comboBox6.TabStop = false;
+            this.comboBox6.Text = "Kilogram (kg)";
+            // 
+            // Arrow
+            // 
+            this.Arrow.Image = global::Calculator2.Properties.Resources.tempsnip;
+            this.Arrow.Location = new System.Drawing.Point(504, 59);
+            this.Arrow.Name = "Arrow";
+            this.Arrow.Size = new System.Drawing.Size(57, 34);
+            this.Arrow.TabIndex = 70;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 425);
+            this.ClientSize = new System.Drawing.Size(829, 425);
+            this.Controls.Add(this.IncDatesCheck);
+            this.Controls.Add(this.Arrow);
+            this.Controls.Add(this.TimeBox);
+            this.Controls.Add(this.WeightBox);
             this.Controls.Add(this.TempBox);
+            this.Controls.Add(this.Programmer);
+            this.Controls.Add(this.DateBox1);
+            this.Controls.Add(this.EXP);
+            this.Controls.Add(this.Percent);
+            this.Controls.Add(this.Random);
+            this.Controls.Add(this.mod);
+            this.Controls.Add(this.factorial);
             this.Controls.Add(this.DPLabel);
             this.Controls.Add(this.DPNumber);
-            this.Controls.Add(this.WeightBox);
-            this.Controls.Add(this.IncDatesCheck);
-            this.Controls.Add(this.DateBox1);
             this.Controls.Add(this.ErrorLabel);
-            this.Controls.Add(this.button10);
             this.Controls.Add(this.Degrees);
             this.Controls.Add(this.Radians);
             this.Controls.Add(this.power);
@@ -1242,6 +1631,10 @@
             this.WeightBox.ResumeLayout(false);
             this.WeightBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DPNumber)).EndInit();
+            this.Programmer.ResumeLayout(false);
+            this.Programmer.PerformLayout();
+            this.TimeBox.ResumeLayout(false);
+            this.TimeBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1268,7 +1661,6 @@
         private System.Windows.Forms.Button ButtonClear;
         private System.Windows.Forms.Button ButtonCE;
         private System.Windows.Forms.Label CalcDisplay;
-        private System.Windows.Forms.Button Pi;
         private System.Windows.Forms.Button inverse;
         private System.Windows.Forms.Button root;
         private System.Windows.Forms.Button square;
@@ -1303,10 +1695,8 @@
         private System.Windows.Forms.Button eulersnumber;
         private System.Windows.Forms.RadioButton Radians;
         private System.Windows.Forms.RadioButton Degrees;
-        private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Label ErrorLabel;
         public System.Windows.Forms.TextBox TextResult;
-        private System.Windows.Forms.ToolStripMenuItem testingToolStripMenuItem;
         private System.Windows.Forms.DateTimePicker Date1;
         private System.Windows.Forms.ComboBox TempUnit;
         private System.Windows.Forms.GroupBox DateBox1;
@@ -1335,6 +1725,35 @@
         private System.Windows.Forms.Label DPLabel;
         private System.Windows.Forms.ComboBox DistUnit;
         private System.Windows.Forms.ToolStripMenuItem distanceToolStripMenuItem;
+        private System.Windows.Forms.Button Pi;
+        private System.Windows.Forms.Button factorial;
+        private System.Windows.Forms.Button mod;
+        private System.Windows.Forms.Button Random;
+        private System.Windows.Forms.Button Percent;
+        private System.Windows.Forms.Button EXP;
+        private System.Windows.Forms.ToolStripMenuItem volumeToolStripMenuItem;
+        private System.Windows.Forms.ComboBox VolUnit;
+        private System.Windows.Forms.GroupBox Programmer;
+        private System.Windows.Forms.Label octal;
+        private System.Windows.Forms.Button Hexidecimal;
+        private System.Windows.Forms.Label hexa;
+        private System.Windows.Forms.Label binary;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolStripMenuItem binaryOctHexaToolStripMenuItem;
+        private System.Windows.Forms.GroupBox TimeBox;
+        private System.Windows.Forms.ComboBox TimeUnit2;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox TimeUnit1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button TimeRecalc;
+        private System.Windows.Forms.Label TimeResult;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label Arrow;
     }
 }
 
